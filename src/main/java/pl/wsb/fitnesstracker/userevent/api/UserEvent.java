@@ -1,7 +1,7 @@
 package pl.wsb.fitnesstracker.userevent.api;
 
 import jakarta.persistence.*;
-import pl.wsb.fitnesstracker.event.Event;
+import pl.wsb.fitnesstracker.event.api.Event;
 import pl.wsb.fitnesstracker.training.api.Training;
 
 @Entity

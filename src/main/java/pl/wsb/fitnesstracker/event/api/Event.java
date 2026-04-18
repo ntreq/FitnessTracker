@@ -1,4 +1,4 @@
-package pl.wsb.fitnesstracker.event;
+package pl.wsb.fitnesstracker.event.api;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 
 @Entity

@@ -6,8 +6,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
-import pl.wsb.fitnesstracker.event.Event;
-import pl.wsb.fitnesstracker.event.EventRepository;
+import pl.wsb.fitnesstracker.event.api.Event;
+import pl.wsb.fitnesstracker.event.internal.EventRepository;
 import pl.wsb.fitnesstracker.event.UserEvent;
 import pl.wsb.fitnesstracker.event.UserEventRepository;
 import pl.wsb.fitnesstracker.user.api.User;
@@ -22,9 +22,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * Ten plik sprawdza, że napisałeś @Query z sekcji 3 i 4 LAB03. Aby ten plik
  * w ogóle się skompilował, musisz najpierw stworzyć (mogą być puste szkielety):
- *   - pl.wsb.fitnesstracker.event.Event
+ *   - pl.wsb.fitnesstracker.event.api.Event
  *   - pl.wsb.fitnesstracker.event.UserEvent
- *   - pl.wsb.fitnesstracker.event.EventRepository (extends JpaRepository<Event, Long>)
+ *   - pl.wsb.fitnesstracker.event.internal.EventRepository (extends JpaRepository<Event, Long>)
  *   - pl.wsb.fitnesstracker.event.UserEventRepository (extends JpaRepository<UserEvent, Long>)
  *
  * Wymagane konstruktory:
