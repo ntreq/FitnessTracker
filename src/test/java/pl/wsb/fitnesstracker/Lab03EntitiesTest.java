@@ -51,6 +51,13 @@ class Lab03EntitiesTest {
     }
 
     @Test
+    void shouldHaveAchievementTable() throws Exception {
+        try (Connection conn = dataSource.getConnection()) {
+            assertThat(tableExists(conn, "achievement")).isTrue();
+        }
+    }
+
+    @Test
     void shouldHaveWorkoutSessionTable() throws Exception {
         try (Connection conn = dataSource.getConnection()) {
             assertThat(tableExists(conn, "workout_session")).isTrue();
@@ -74,12 +81,21 @@ class Lab03EntitiesTest {
     }
 
     @Test
+    void achievementTableHasUserForeignKey() throws Exception {
+        try (Connection conn = dataSource.getConnection()) {
+            Set<String> cols = tableColumns(conn, "achievement");
+            assertThat(cols).contains("id", "user_id");
+        }
+    }
+
+    @Test
     void workoutSessionTableHasTrainingForeignKey() throws Exception {
         try (Connection conn = dataSource.getConnection()) {
             Set<String> cols = tableColumns(conn, "workout_session");
             assertThat(cols).contains("id", "training_id");
         }
     }
+
 
     private boolean tableExists(Connection conn, String expectedName) throws SQLException {
         DatabaseMetaData meta = conn.getMetaData();
