@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.wsb.fitnesstracker.training.api.Training;
 import pl.wsb.fitnesstracker.training.internal.ActivityType;
 import pl.wsb.fitnesstracker.user.api.User;
+import pl.wsb.fitnesstracker.user.internal.UserRepository;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,10 +30,14 @@ import static java.util.Objects.isNull;
 @Profile("loadInitialData")
 @Slf4j
 @ToString
-@RequiredArgsConstructor
 class InitialDataLoader {
 
-    private final JpaRepository<User, Long> userRepository;
+    public InitialDataLoader(UserRepository userRepository, JpaRepository<Training, Long> trainingRepository) {
+        this.userRepository = userRepository;
+        this.trainingRepository = trainingRepository;
+    }
+
+    private final UserRepository userRepository;
 
     private final JpaRepository<Training, Long> trainingRepository;
 
