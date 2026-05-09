@@ -3,9 +3,10 @@ package pl.wsb.fitnesstracker.userevent.api;
 import jakarta.persistence.*;
 import pl.wsb.fitnesstracker.event.api.Event;
 import pl.wsb.fitnesstracker.training.api.Training;
+import pl.wsb.fitnesstracker.user.api.User;
 
 @Entity
-@Table(name = "user_events")
+@Table(name = "user_event")
 public class UserEvent {
 
     @Id
@@ -13,13 +14,10 @@ public class UserEvent {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "event_id", nullable = false)
-    private Event event;
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     @ManyToOne
-    @JoinColumn(name = "training_id", nullable = false)
-    private Training training;
-
-
-
+    @JoinColumn(name = "event_id", nullable = false)
+    private Event event;
 }
